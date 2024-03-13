@@ -30,7 +30,6 @@ public class PersonController {
 
     @GetMapping
     public ResponseEntity<List<Person>> getAllPersons() {
-        List<Person> persons = personService.getAllPersons();
-        return new ResponseEntity<>(persons, HttpStatus.OK);
+        return new ResponseEntity<>(personService.getAllPersons(), HttpStatus.OK);
     }
 }
