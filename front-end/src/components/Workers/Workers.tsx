@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const Workers: React.FC = () => {
-    const [persons, setPersons] = useState<any[]>([]);
+interface Props {
+    reload: boolean;
+}
+
+const Workers: React.FC<Props> = ({ reload }) => {
+    const [, setPersons] = useState<any[]>([]);
 
     const urlApi = "http://localhost:8080/api/person";
 
@@ -21,7 +25,7 @@ const Workers: React.FC = () => {
         };
 
         fetchData();
-    }, []);
+    }, [reload]);
 
     return (
         <div>

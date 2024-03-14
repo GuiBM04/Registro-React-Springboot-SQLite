@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 import Person from '../../entities/Person';
 
-const AddWorker: React.FC = () => {
+interface Props {
+    onPost: () => void;
+}
+
+const AddWorker: React.FC<Props> = ({ onPost }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
@@ -34,6 +38,7 @@ const AddWorker: React.FC = () => {
                 throw new Error(`Erro ao enviar dados. Status: ${response.status}`);
             } else {
                 console.log("Pessoa enviada com sucesso!");
+                onPost();
             }
         } catch (e: any) {
             console.log(e.messsage);
