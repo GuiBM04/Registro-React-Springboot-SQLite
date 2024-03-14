@@ -1,5 +1,6 @@
+import './Workers.css';
+
 import React, { useEffect, useState } from "react";
-import Person from "../../entities/Person";
 
 interface Props {
     reload: boolean;
@@ -30,18 +31,36 @@ const Workers: React.FC<Props> = ({ reload }) => {
 
     return (
         <div>
-            {persons.map((p) => 
-                <div key={p.id}>
-                    <span>{p.name}</span>
-                    <span>{p.email}</span>
-                    <span>{p.telefone}</span>
-                    <span>{p.date}</span>
-                    <span>{p.cpf}</span>
-                    <span>{p.rg}</span>
-                    <span>{p.nacionalidade}</span>
-                    <span>{p.estadoCivil}</span>
-                </div>
-            )}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Data</th>
+                        <th>CPF</th>
+                        <th>RG</th>
+                        <th>Nacionalidade</th>
+                        <th>Estado Civil</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {persons.map((p) => 
+                    <tr key={p.id}>
+                        <td>{p.name}</td>
+                        <td>{p.email}</td>
+                        <td>{p.telefone}</td>
+                        <td>{p.date}</td>
+                        <td>{p.cpf}</td>
+                        <td>{p.rg}</td>
+                        <td>{p.nacionalidade}</td>
+                        <td>{p.estadoCivil}</td>
+                    </tr>
+                    )}
+                </tbody>
+            </table>
+            
         </div>
     );
 }

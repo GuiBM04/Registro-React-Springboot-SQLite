@@ -1,3 +1,5 @@
+import './AddWorker.css';
+
 import React, { useState } from "react";
 
 import Person from '../../entities/Person';
@@ -56,7 +58,7 @@ const AddWorker: React.FC<Props> = ({ onPost }) => {
                     onChange={(e) => {setName(e.target.value)}}
                 />
 
-                <label>email</label>
+                <label>Email</label>
                 <input
                     type="email"
                     id="email"
@@ -105,12 +107,16 @@ const AddWorker: React.FC<Props> = ({ onPost }) => {
                 />
 
                 <label>Estado Civil</label>
-                <input
-                    type="text"
+                <select 
                     id="estado-civil"
                     value={estadoCivil}
-                    onChange={(e) => {setEstadoCivil(e.target.value)}}
-                />
+                    onChange={(e) => setEstadoCivil(e.target.value)}
+                >
+                    <option value={""}>Selecione</option>
+                    <option value={"Solteiro"}>Solteiro</option>
+                    <option value={"Casado"}>Casado</option>
+                    <option value={"União Estável"}>União Estável</option>
+                </select>
 
                 <input type="submit"/>
             </form>

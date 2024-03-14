@@ -1,5 +1,3 @@
-import React from "react"
-
 export default class Person {
     constructor(
         private id: String,
@@ -7,7 +5,7 @@ export default class Person {
         private email: String,
         private telefone: String,
         private date: String,
-        private cpf:String,
+        private cpf: String,
         private rg: String,
         private nacionalidade: String,
         private estadoCivil: String
