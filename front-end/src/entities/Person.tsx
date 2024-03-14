@@ -1,4 +1,6 @@
-class Person {
+import React from "react"
+
+export default class Person {
     constructor(
         private id: String,
         private name: String,
@@ -12,5 +14,3 @@ class Person {
         ) {
     }
 }
-
-export default Person;
