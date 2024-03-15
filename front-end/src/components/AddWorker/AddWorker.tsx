@@ -27,24 +27,27 @@ const AddWorker: React.FC<Props> = ({ onPost }) => {
     }
 
     async function fetchPerson(person: Person) {
-        try {
-            const response = await fetch(urlApi, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(person),
-            });
+        fetch(urlApi, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(person),
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(e => console.log(e));
 
-            if (!response.ok) {
-                throw new Error(`Erro ao enviar dados. Status: ${response.status}`);
-            } else {
-                console.log("Pessoa enviada com sucesso!");
-                onPost();
-            }
-        } catch (e: any) {
-            console.log(e.messsage);
-        }
+        onPost();
+
+        setName("");
+        setEmail("");
+        setTelefone("");
+        setDate("");
+        setCpf("");
+        setRg("");
+        setNacionalidade("");
+        setEstadoCivil("");
     }
 
     return (

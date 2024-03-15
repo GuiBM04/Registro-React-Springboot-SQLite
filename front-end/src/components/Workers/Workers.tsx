@@ -31,7 +31,8 @@ const Workers: React.FC<Props> = ({ reload }) => {
 
     return (
         <div>
-            <table>
+            {persons.length !== 0 && 
+                <table>
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -60,6 +61,8 @@ const Workers: React.FC<Props> = ({ reload }) => {
                     )}
                 </tbody>
             </table>
+            }
+            
             
         </div>
     );
