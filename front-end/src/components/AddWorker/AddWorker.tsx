@@ -2,13 +2,13 @@ import './AddWorker.css';
 
 import React, { useState } from "react";
 
+import { usePersonContext } from '../../context/PersonContext';
+
 import Person from '../../entities/Person';
 
-interface Props {
-    onPost: () => void;
-}
+const AddWorker: React.FC = () => {
+    const context = usePersonContext();
 
-const AddWorker: React.FC<Props> = ({ onPost }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
@@ -18,27 +18,10 @@ const AddWorker: React.FC<Props> = ({ onPost }) => {
     const [nacionalidade, setNacionalidade] = useState("");
     const [estadoCivil, setEstadoCivil] = useState("");
 
-    const urlApi = "http://localhost:8080/api/person";
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        fetchPerson(new Person("", name, email, telefone, date, cpf, rg, nacionalidade, estadoCivil));
-    }
-
-    async function fetchPerson(person: Person) {
-        fetch(urlApi, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(person),
-        })
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(e => console.log(e));
-
-        onPost();
+        context.postPerson(new Person("", name, email, telefone, date, cpf, rg, nacionalidade, estadoCivil));
 
         setName("");
         setEmail("");

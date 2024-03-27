@@ -1,14 +1,14 @@
 export default class Person {
     constructor(
-        private id: String,
-        private name: String,
-        private email: String,
-        private telefone: String,
-        private date: String,
-        private cpf: String,
-        private rg: String,
-        private nacionalidade: String,
-        private estadoCivil: String
+        public id: String,
+        public name: String,
+        public email: String,
+        public telefone: String,
+        public date: String,
+        public cpf: String,
+        public rg: String,
+        public nacionalidade: String,
+        public estadoCivil: String
         ) {
     }
 }

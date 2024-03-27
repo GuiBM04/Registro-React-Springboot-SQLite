@@ -9,8 +9,8 @@ public class PersonValidation {
 
     private Person person;
 
-    public PersonValidation(Person p) {
-        this.person = p;
+    public PersonValidation(Person person) {
+        this.person = person;
     }
 
     public Person getPerson() {
